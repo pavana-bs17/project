@@ -2,11 +2,11 @@ import React from "react";
 
 const Account = () => {
   return (
-    <div className="flex flex-col ml-[30px]">
-      <div className="bg-[#F1F2F7] mt-6 w-max text-[#999999] font-normal text-xs font-sans">
+    <div className="flex flex-col px-3 md:px-[30px] w-[100%]  ">
+      <div className="bg-[#F1F2F7] mt-6 w-max text-[#999999] font-normal text-xs font-sans hidden md:display">
         Dashboard | <span className="text-[#2680EB]">My Account</span>
       </div>
-      <div className="mt-4 w-[100%] bg-white rounded-sm">
+      <div className="mt-4 w-[100%] bg-white rounded-sm shadow-custom md:shadow-none">
         <div className="flex items-center ml-6 py-5">
           <img
             src="/left_arrow.png"
@@ -20,7 +20,7 @@ const Account = () => {
         <div className="border-b border-[#EBEDF2]"></div>
         {/* place a div where it takes the full width of the parent and padding x 24px padding y 4px */}
         <div className="main">
-          <div className="mt-4 mb-2 mx-6 md:w-[780px] lg:w-[1120px]">
+          <div className="md:mt-4 mb-2 md:mx-6">
             <div className="bg-[#F8F8F8]">
               <div className="flex justify-between w-full px-6 py-5">
                 <div className="font-sans font-semibold text-base text-[#484848]">
@@ -35,7 +35,7 @@ const Account = () => {
             </div>
 
             {/* Add your new div here */}
-            <div className="bg-white md:w-[780px] lg:w-[1120px] border border-[#EBEDF2] border-t-0 rounded border-3 pt-5 pl-5">
+            <div className="bg-white w-[100%] border border-[#EBEDF2] border-t-0 rounded border-3 pt-5 pl-5">
               <div className="flex items-center">
                 {/* Image on the left */}
                 <div className="w-32 h-32 rounded-full p-1 border border-[#F8F8F8] flex-shrink-0 mr-9">
@@ -88,9 +88,9 @@ const Account = () => {
             </div>
           </div>
         </div>
-        <div className="flex md:w-[780px] lg:w-[1120px] justify-between mt-2 mb-5">
-          <div className="md:w-[550px] ">
-            <div className="mb-2 mx-6 md:w-[550px]">
+        <div className="flex w-[100%] justify-between mt-2 mb-5 flex-wrap">
+          <div className="w-[100%] md:w-[50%] min-h-[280px]">
+            <div className="mb-2 md:mx-6">
               <div className="bg-[#F8F8F8]">
                 <div className="flex justify-between w-full px-6 py-5">
                   <div className="font-sans font-semibold text-base text-[#484848]">
@@ -105,10 +105,10 @@ const Account = () => {
               </div>
 
               {/* Add your new div here */}
-              <div className="bg-white md:w-[550px] border border-[#EBEDF2] border-t-0 rounded border-3 py-8 pl-5">
-                <div className="flex items-center">
+              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8 pb-16 pl-5">
+                <div className="flex items-center flex-wrap">
                   {/* Left side */}
-                  <div className="w-52">
+                  <div className="w-[100%] md:w-52">
                     <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-1">
                       Full Name*
                     </div>
@@ -124,7 +124,7 @@ const Account = () => {
                   </div>
 
                   {/* Right side */}
-                  <div className="w-52">
+                  <div className="w-[100%] md:w-52">
                     {/* Add pl-4 for left padding */}
                     <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-[2px]">
                       Designation
@@ -140,8 +140,8 @@ const Account = () => {
               </div>
             </div>
           </div>
-          <div className="md:w-[550px] ">
-            <div className="mb-2 mx-6 md:w-[550px]">
+          <div className="w-[100%] md:w-[50%] min-h-[280px]">
+            <div className="mb-2 md:mx-6">
               <div className="bg-[#F8F8F8]">
                 <div className="flex justify-between w-full px-6 py-5">
                   <div className="font-sans font-semibold text-base text-[#484848]">
@@ -156,10 +156,10 @@ const Account = () => {
               </div>
 
               {/* Add your new div here */}
-              <div className="bg-white md:w-[550px] border border-[#EBEDF2] border-t-0 rounded border-3 py-8 pl-5">
+              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8  pb-[75px] pl-5">
                 <div className="flex items-center">
                   {/* Left side */}
-                  <div className="">
+                  <div className="w-[100%]">
                     <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-4">
                     Receive job applications via
                     </div>

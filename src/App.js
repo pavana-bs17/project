@@ -9,7 +9,7 @@ function App() {
     <Router>
     <div className="bg-[#F1F2F7]">
       <Navbar />
-      <div className='flex'>
+      <div className='flex flex-col md:flex-row'>
       <Sidebar />
       <Account />
       </div>

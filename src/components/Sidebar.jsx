@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
-    return(
-        <div className="hidden md:block w-72 h-screen bg-[#404040]">
+  return (
+    <>
+      <div className="hidden md:block w-72 h-screen bg-[#404040]">
         <div className="pl-4 flex flex-row items-center pt-6">
           <img
             src="/hp.png" // Replace with your image URL
@@ -20,13 +21,13 @@ const Sidebar = () => {
           <span className="pl-6 font-sans font-light text-2xl truncate w-60 h-auto text-[#A2A3B7]">
             Hewlett Packard Enterprises
           </span>
-          <span className="pl-5">
+          <span className="px-5">
             <FontAwesomeIcon icon={faAngleRight} style={{ color: "#99CA3B" }} />
           </span>
         </div>
 
         {/* Sidebar Links */}
-        <div className="mt-11">
+        <div className="mt-11 bg-[#404040]">
           <div className="flex items-center pl-6">
             <img
               src="/dashboard.png" // Replace with your image URL
@@ -138,6 +139,22 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-    );
- };
- export default Sidebar;
+      <div className="block md:hidden shadow-md bg-slate-50 w-[100%] px-3 py-3">
+  <div className="flex items-center justify-between">
+    <div className="text-[#B2B2B2] font-sans font-medium text-xs"> My Inventory <span className="text-[#e3e3e4] mx-2">|</span></div>
+    <div className="text-[#B2B2B2] font-sans font-medium text-xs">
+        Company Profile<span className="text-[#e3e3e4] mx-2">|</span>
+    </div>
+    <div className="text-[#B2B2B2] font-sans font-medium text-xs"> 
+        All Users<span className="text-[#e3e3e4] mx-2">|</span>
+    </div>
+    <div className="font-sans font-medium text-xs text-[#99CA3B]">
+        My Account
+    </div>
+  </div>
+</div>
+
+    </>
+  );
+};
+export default Sidebar;
