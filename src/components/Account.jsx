@@ -88,9 +88,9 @@ const Account = () => {
             </div>
           </div>
         </div>
-        <div className="flex w-[100%] justify-between mt-2 mb-5 flex-wrap">
-          <div className="w-[100%] md:w-[50%] min-h-[280px]">
-            <div className="mb-2 md:mx-6">
+        <div className="flex w-[100%] md:w-auto justify-between mt-2 mb-5 flex-wrap md:mx-6">
+          <div className="w-[100%] md:w-[49%] md:min-h-[280px]">
+            <div className="mb-2">
               <div className="bg-[#F8F8F8]">
                 <div className="flex justify-between w-full px-6 py-5">
                   <div className="font-sans font-semibold text-base text-[#484848]">
@@ -142,8 +142,8 @@ const Account = () => {
               </div>
             </div>
           </div>
-          <div className="w-[100%] md:w-[50%] min-h-[280px]">
-            <div className="mb-2 md:mx-6">
+          <div className="w-[100%] md:w-[49%] md:min-h-[280px]">
+            <div className="mb-2">
               <div className="bg-[#F8F8F8]">
                 <div className="flex justify-between w-full px-6 py-5">
                   <div className="font-sans font-semibold text-base text-[#484848]">
