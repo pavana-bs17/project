@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import Navbar  from './components/Navbar';
 import Account from './components/Account';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 function App() {
   return (

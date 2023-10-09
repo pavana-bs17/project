@@ -2,7 +2,7 @@ import React from "react";
 
 const Account = () => {
   return (
-    <div className="flex flex-col px-3 md:px-[30px] w-[100%]  ">
+    <div className="flex flex-col px-3 md:px-[30px] w-[100%] pb-8 md:pb-0">
       <div className="bg-[#F1F2F7] mt-6 w-max text-[#999999] font-normal text-xs font-sans hidden md:display">
         Dashboard | <span className="text-[#2680EB]">My Account</span>
       </div>
@@ -105,14 +105,14 @@ const Account = () => {
               </div>
 
               {/* Add your new div here */}
-              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8 pb-16 pl-5">
+              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8 md:pb-16 pb-0 pl-5">
                 <div className="flex items-center flex-wrap">
                   {/* Left side */}
-                  <div className="w-[100%] md:w-52">
+                  <div className="w-[100%] md:w-52 md:mb-0 mb-[18px]">
                     <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-1">
                       Full Name*
                     </div>
-                    <div className="text-[#404040] font-sans font-normal text-sm mb-10">
+                    <div className="text-[#404040] font-sans font-normal text-sm mb-[18px] md:mb-10">
                       Divya Chatterjee
                     </div>
                     <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-1">
@@ -129,10 +129,12 @@ const Account = () => {
                     <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-[2px]">
                       Designation
                     </div>
-                    <div className="text-[#404040] font-sans font-normal text-sm mb-[57px]">
+                    <div className="text-[#404040] font-sans font-normal text-sm md:mb-[60px]">
                       Assistant Manager - HR
                     </div>
-                    <div className="text-[#2680EB] font-sans font-normal text-sm mt-2">
+                    <div
+                      class="text-[#2680EB] font-sans font-normal text-sm md:mb-0 mb-12 mt-4 md:mt-0 relative top-4 left-48 lg:top-0 lg:left-0 w-[130px]"
+                    >
                       Change Password
                     </div>
                   </div>
@@ -145,7 +147,7 @@ const Account = () => {
               <div className="bg-[#F8F8F8]">
                 <div className="flex justify-between w-full px-6 py-5">
                   <div className="font-sans font-semibold text-base text-[#484848]">
-                  Application Settings
+                    Application Settings
                   </div>
                   <img
                     src="/edit.png"
@@ -156,21 +158,22 @@ const Account = () => {
               </div>
 
               {/* Add your new div here */}
-              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8  pb-[75px] pl-5">
+              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8  md:pb-[75px] pb-10 pl-5">
                 <div className="flex items-center">
                   {/* Left side */}
                   <div className="w-[100%]">
                     <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-4">
-                    Receive job applications via
+                      Receive job applications via
                     </div>
                     <div className="text-[#484848] font-sans font-normal text-xs mb-3">
-                    Only on my dashboard
+                      Only on my dashboard
                     </div>
                     <div className="text-[#484848] font-sans font-normal text-xs mb-4">
-                    Email and on my dashboard
+                      Email and on my dashboard
                     </div>
                     <div className="text-[#B2B2B2] font-sans font-normal text-xs">
-                    *Please note, this setting will not impact your old job postings
+                      *Please note, this setting will not impact your old job
+                      postings
                     </div>
                   </div>
                 </div>
