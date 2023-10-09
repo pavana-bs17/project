@@ -38,13 +38,19 @@ const Account = () => {
             <div className="bg-white w-[100%] border border-[#EBEDF2] border-t-0 rounded border-3 pt-5 pl-5">
               <div className="flex items-center">
                 {/* Image on the left */}
-                <div className="w-32 h-32 rounded-full p-1 border border-[#F8F8F8] flex-shrink-0 mr-9">
+                <div className="w-32 h-32 rounded-full p-1 border border-[#F8F8F8] flex-shrink-0 mr-3 md:mr-9">
                   <img
                     src="/image.png"
                     alt="Image"
                     className="w-full h-full rounded-full"
                   />
+                  
                 </div>
+                <div className="hidden md:block w-[42px] md:w-9 h-9 rounded-full overflow-hidden border border-[#f0eeee] shadow-sm relative md:right-[70px] md:top-[37px]">
+                  <div className="flex items-center p-2 justify-center bg-white ">
+                    <img src="/edit.png" alt="Edit" className="bg-white" />
+                  </div>
+                </div> 
 
                 {/* Details on the right */}
                 <div className="w-2/3">
@@ -132,9 +138,7 @@ const Account = () => {
                     <div className="text-[#404040] font-sans font-normal text-sm md:mb-[60px]">
                       Assistant Manager - HR
                     </div>
-                    <div
-                      class="text-[#2680EB] font-sans font-normal text-sm md:mb-0 mb-12 mt-4 md:mt-0 relative top-4 left-48 lg:top-0 lg:left-0 w-[130px]"
-                    >
+                    <div class="text-[#2680EB] font-sans font-normal text-sm md:mb-0 mb-12 mt-4 md:mt-0 relative top-4 left-48 lg:top-0 lg:left-0 w-[130px]">
                       Change Password
                     </div>
                   </div>
