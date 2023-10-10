@@ -1,12 +1,20 @@
 import React from "react";
+import { useHamburger } from "../context/HamburgerContext";
 
 const Account = () => {
+  const { hamburger } = useHamburger();
   return (
-    <div className="flex flex-col px-3 md:px-[30px] w-[100%] pb-8 md:pb-0">
-      <div className="bg-[#F1F2F7] mt-6 w-max text-[#999999] font-normal text-xs font-sans hidden md:display">
+    <div
+      className={`flex flex-col px-3 md:px-[30px] ${
+        hamburger
+          ? "md:w-[calc(100%-280px)] md:ml-[288px] hidden md:block"
+          : "md:w-[calc(100%-80px)] md:ml-[80px]"
+      } pb-8 md:pb-0 md:mt-16 mt-[120px] xl:h-[100vh] md:h-full`}
+    >
+      <div className="bg-[#F1F2F7] mt-6 w-max text-[#999999] font-normal text-xs font-sans hidden md:block">
         Dashboard | <span className="text-[#2680EB]">My Account</span>
       </div>
-      <div className="mt-4 w-[100%] bg-white rounded-sm shadow-custom md:shadow-none">
+      <div className="md:mt-4 w-[100%] bg-white rounded-sm shadow-custom md:shadow-none md:mb-[50px]">
         <div className="flex items-center ml-6 py-5">
           <img
             src="/left_arrow.png"
@@ -38,19 +46,18 @@ const Account = () => {
             <div className="bg-white w-[100%] border border-[#EBEDF2] border-t-0 rounded border-3 pt-5 pl-5">
               <div className="flex items-center">
                 {/* Image on the left */}
-                <div className="w-32 h-32 rounded-full p-1 border border-[#F8F8F8] flex-shrink-0 mr-3 md:mr-9">
+                <div className="w-32 h-32 rounded-full p-1 border border-[#F8F8F8] mr-3 md:mr-9">
                   <img
                     src="/image.png"
                     alt="Image"
                     className="w-full h-full rounded-full"
                   />
-                  
                 </div>
                 <div className="hidden md:block w-[42px] md:w-9 h-9 rounded-full overflow-hidden border border-[#f0eeee] shadow-sm relative md:right-[70px] md:top-[37px]">
                   <div className="flex items-center p-2 justify-center bg-white ">
                     <img src="/edit.png" alt="Edit" className="bg-white" />
                   </div>
-                </div> 
+                </div>
 
                 {/* Details on the right */}
                 <div className="w-2/3">
@@ -95,7 +102,7 @@ const Account = () => {
           </div>
         </div>
         <div className="flex w-[100%] md:w-auto justify-between mt-2 mb-5 flex-wrap md:mx-6">
-          <div className="w-[100%] md:w-[49%] md:min-h-[280px]">
+          <div className="w-[100%] lg:w-[49%] md:min-h-[280px]">
             <div className="mb-2">
               <div className="bg-[#F8F8F8]">
                 <div className="flex justify-between w-full px-6 py-5">
@@ -110,43 +117,54 @@ const Account = () => {
                 </div>
               </div>
 
-              {/* Add your new div here */}
-              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8 md:pb-16 pb-0 pl-5">
-                <div className="flex items-center flex-wrap">
-                  {/* Left side */}
-                  <div className="w-[100%] md:w-52 md:mb-0 mb-[18px]">
-                    <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-1">
-                      Full Name*
-                    </div>
-                    <div className="text-[#404040] font-sans font-normal text-sm mb-[18px] md:mb-10">
-                      Divya Chatterjee
-                    </div>
-                    <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-1">
-                      Phone / Landline*
+              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8 md:pb-10 pb-0 pl-5">
+             <div className="flex flex-wrap items-center">
+               
+                <div className="w-[100%] md:w-[48%]">
+                  
+                  <div className=" mb-6 md:mb-10">
+                    <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-2">
+                    Full Name*
                     </div>
                     <div className="text-[#404040] font-sans font-normal text-sm">
-                      7012248563
+                    Divya Chatterjee
+                    </div>
+                  </div>
+                  <div className="mb-6 md:mb-[10px]">
+                    <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-2">
+                    Phone / Landline*
+                    </div>
+                    <div className="text-[#404040] font-sans font-normal text-sm">
+                    7012248563
                     </div>
                   </div>
 
-                  {/* Right side */}
-                  <div className="w-[100%] md:w-52">
-                    {/* Add pl-4 for left padding */}
-                    <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-[2px]">
+                </div>
+
+     
+                <div className="w-[100%] md:w-[48%]">
+          
+                  <div className="mb-8 md:mb-[61px]">
+                    <div className="text-[#B2B2B2] font-sans font-normal text-xs mb-2">
                       Designation
                     </div>
-                    <div className="text-[#404040] font-sans font-normal text-sm md:mb-[60px]">
+                    <div className="text-[#404040] font-sans font-normal text-sm">
                       Assistant Manager - HR
                     </div>
-                    <div class="text-[#2680EB] font-sans font-normal text-sm md:mb-0 mb-12 mt-4 md:mt-0 relative top-4 left-48 lg:top-0 lg:left-0 w-[130px]">
-                      Change Password
+                  </div>
+                  <div className="mb-[30px] md:mb-[12px]">
+                    <div className="text-[#2680EB] font-sans font-normal text-sm ml-[190px] md:ml-0">
+                    Change Password
                     </div>
                   </div>
+     
                 </div>
+              </div>
+                
               </div>
             </div>
           </div>
-          <div className="w-[100%] md:w-[49%] md:min-h-[280px]">
+          <div className="w-[100%] lg:w-[49%] md:min-h-[280px]">
             <div className="mb-2">
               <div className="bg-[#F8F8F8]">
                 <div className="flex justify-between w-full px-6 py-5">
@@ -162,7 +180,7 @@ const Account = () => {
               </div>
 
               {/* Add your new div here */}
-              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8  md:pb-[75px] pb-10 pl-5">
+              <div className="bg-white border border-[#EBEDF2] border-t-0 rounded border-3 pt-8  md:pb-[69px] pb-10 pl-5">
                 <div className="flex items-center">
                   {/* Left side */}
                   <div className="w-[100%]">
