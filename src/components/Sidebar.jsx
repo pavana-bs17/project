@@ -1,119 +1,107 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { useHamburger } from "../context/HamburgerContext"; 
+import { HamburgerContext } from "../context/HamburgerContext";
+import { menus } from "../utils/constant";
+import { menuItems } from "../utils/constant";
 
 const Sidebar = () => {
-  const { hamburger } = useHamburger();
-  const Menus = [
-    { title: "Dashboard", src: "/dashboard.png", link: "/dashboard" },
-    { title: "Jobs", src: "/job.png", link: "/job" },
-    { title: "Applications", src: "/application.png", link: "/applications" },
-    { title: "Followers", src: "/followers.png", link: "/followers" },
-    { title: "My Inventory", src: "/enterprise.png", link: "/inventory" },
-    { title: "Company Profile", src: "/enterprise.png", link: "/company" },
-    { title: "All Users", src: "/users.png", link: "/users" },
-    { title: "My Account", src: "/my_account.png", link: "/account" },
-  ];
-  const [isSelected, setselected] = useState("My Account");
+    const { hamburger } = useContext(HamburgerContext);
+
+  const [selectedMenu, setSelectedMenu] = useState("My Account");
+
+  const [selectedItem, setSelectedItem] = useState("My Account");
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+  };
   return (
     <>
       <div
         className={`${
-          hamburger ? "md:w-72 w-[100%]" : "md:w-20 w-0"
-        } md:block md:h-screen bg-[#404040] pt-8 fixed top-[65px] h-[100vh] z-50`}
+          hamburger
+            ? "md:w-72 w-[100%] md:block lg:h-screen bg-[#404040] pt-8 fixed top-[65px] md:h-[100vh] z-50 h-[100%]"
+            : "w-20 hidden md:hidden"
+        }`}
       >
-        <div className="pl-4 flex items-center gap-x-1">
-          <img
-            src="/hp.png" 
-            alt="company logo"
-            className="w-12 h-12 mr-2"
-          />
-          <span
-            className={`${
-              !hamburger && "scale-0"
-            } font-sans origin-left font-light text-4xl w-[105px] text-white`}
-          >
-            Hello,
-          </span>
-        </div>
-        <div className="flex flex-row items-center">
-          <span
-            className={`${
-              !hamburger && "scale-0"
-            } origin-left pl-6 font-sans font-light text-2xl truncate md:w-60 w-[100%] h-auto text-[#A2A3B7]`}
-          >
-            Hewlett Packard Enterprises
-          </span>
-          <span className="px-5">
-            <FontAwesomeIcon
-              icon={faAngleRight}
-              style={{ color: "#99CA3B" }}
-              className={`${!hamburger && "scale-0"} origin-left px-5`}
-            />
-          </span>
+        <div className="pl-6">
+          <div className="flex items-center gap-x-1">
+            <img src="/hp.png" alt="company logo" className="w-12 h-12 mr-2" loading="lazy" />
+            <span
+              className={`font-sans font-light text-4xl w-[105px] text-white`}
+            >
+              Hello,
+            </span>
+          </div>
+          <div className="flex flex-row items-center">
+            <span
+              className={`font-sans font-light text-2xl truncate md:w-60 w-[100%] h-auto text-[#A2A3B7]`}
+            >
+              Hewlett Packard Enterprises
+            </span>
+            <span className="mr-2 md:mr-0">
+              <FontAwesomeIcon
+                icon={faAngleRight}
+                className={`text-[#99CA3B]`}
+              />
+            </span>
+          </div>
         </div>
 
         {/* Sidebar Links */}
-
-
-        <ul className="md:pt-11 pt-9 bg-[#404040]">
-          {Menus.map((menu, index) => (
-              <Link
-              to={`${menu.link}`}
-            >
-            <li
-              key={index}
-              className={`font-sans  font-normal md:text-base text-sm text-gray-300 gap-x-4 cursor-pointer pl-[18px] pr-3 py-5 flex items-center hover:bg-[#59595c] ${
-                menu.title === isSelected
-                  && "border-l-4 border-green-500 bg-[#313136]"
-           
-              }`}
-              onClick={() => {
-                setselected(menu.title); 
-              }}
-            >
-      
-              <img src={`${menu.src}`} className="md:w-6 md:h-6 w-4 h-4 mr-4" />
-              <span className={`${
-                !hamburger && "scale-0"
-              } font-sans origin-left font-normal md:text-base text-sm text-gray-300`}> {menu.title}</span>
-            </li>
+        <div className=" md:pt-11 pt-6 bg-[#404040] flex flex-col gap-1">
+          {menus.map((menu, index) => (
+            <Link to={`${menu.link}`} key={index}>
+              <div
+                className={`md:py-4 py-2 pl-6 pr-[100px]font-sans font-normal md:text-base text-sm text-gray-300 cursor-pointer flex items-center hover:bg-[#59595c] ${
+                  menu.title === selectedMenu && hamburger
+                    ? "border-l-4 border-green-500 bg-[#313136]"
+                    : ""
+                }`}
+                onClick={() => {
+                  setSelectedMenu(menu.title);
+                }}
+              >
+                <img
+                  src={`${menu.src}`}
+                  className="md:w-6 md:h-6 w-4 h-4 mr-4"
+                  loading="lazy"
+                />
+                <span
+                  className={`font-sans font-normal md:text-base text-sm text-gray-300`}
+                >
+                  {menu.title}
+                </span>
+              </div>
             </Link>
           ))}
-        </ul>
-        <div
-            className={`${
-              !hamburger && "scale-0"
-            } text-[#99CA3B] md:mt-14 mt-14 pl-6 font-sans origin-left font-semibold text-xs`}
+        </div>
+        <div className="pl-6">
+          <div
+            className={`text-[#99CA3B] mt-11 font-sans font-semibold text-xs`}
           >
-            Contact Us -{" "}
+            Contact Us -
           </div>
 
-          <div
-            className={`${
-              !hamburger && "scale-0"
-            } text-[#99CA3B] font-sans origin-left font-normal text-xs pl-6 mt-2`}
-          >
-            Email: admin@jobsforher.com{" "}
+          <div className={`text-[#99CA3B] font-sans font-normal text-xs mt-2`}>
+            Email: admin@jobsforher.com
           </div>
+        </div>
       </div>
-      <div className="block md:hidden shadow-md bg-slate-50 w-[100%] px-3 py-3 fixed top-[68px]">
+      <div className="block md:hidden shadow-md bg-slate-50 w-[100%] py-3 fixed top-[68px] px-2">
         <div className="flex items-center justify-between">
-          <div className="text-[#B2B2B2] font-sans font-medium text-xs">
-            {" "}
-            My Inventory <span className="text-[#e3e3e4] mx-2">|</span>
-          </div>
-          <div className="text-[#B2B2B2] font-sans font-medium text-xs">
-            Company Profile<span className="text-[#e3e3e4] mx-2">|</span>
-          </div>
-          <div className="text-[#B2B2B2] font-sans font-medium text-xs">
-            All Users<span className="text-[#e3e3e4] mx-2">|</span>
-          </div>
-          <div className="font-sans font-medium text-xs text-[#99CA3B]">
-            My Account
-          </div>
+          {menuItems.map((item, index) => (
+            <div
+              key={index}
+              className={`font-sans font-medium text-xs ${
+                selectedItem === item ? "text-[#99CA3B]" : "text-[#B2B2B2]"
+              }`}
+              onClick={() => handleItemClick(item)}
+            >
+              {item}
+            </div>
+          ))}
         </div>
       </div>
     </>

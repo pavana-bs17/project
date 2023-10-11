@@ -1,8 +1,9 @@
+
 import React, { createContext, useContext, useState } from 'react';
 
-const HamburgerContext = createContext();
+export const HamburgerContext = createContext();
 
-export function HamburgerProvider({ children }) {
+export const HamburgerProvider = ({ children }) => {
   const [hamburger, setHamburger] = useState(false);
 
   const toggleModal = () => {
@@ -14,8 +15,4 @@ export function HamburgerProvider({ children }) {
       {children}
     </HamburgerContext.Provider>
   );
-}
-
-export function useHamburger() {
-  return useContext(HamburgerContext);
 }
