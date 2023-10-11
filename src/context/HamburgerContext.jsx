@@ -10,8 +10,10 @@ export const HamburgerProvider = ({ children }) => {
     setHamburger(!hamburger);
   };
 
+  const [selectedMenu, setSelectedMenu] = useState("My Account");
+
   return (
-    <HamburgerContext.Provider value={{ hamburger, toggleModal }}>
+    <HamburgerContext.Provider value={{ hamburger, toggleModal, selectedMenu, setSelectedMenu}}>
       {children}
     </HamburgerContext.Provider>
   );

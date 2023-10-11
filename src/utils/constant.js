@@ -5,7 +5,7 @@ export const navs = [
   { title: "BLOGS", link: "/blog" },
 ];
 export const menus = [
-  { title: "Dashboard", src: "/dashboard.png", link: "/dashboard" },
+  { title: "Dashboard", src: "/dashboard.png", link: "/user" },
   { title: "Jobs", src: "/job.png", link: "/job" },
   { title: "Applications", src: "/application.png", link: "/applications" },
   { title: "Followers", src: "/followers.png", link: "/followers" },

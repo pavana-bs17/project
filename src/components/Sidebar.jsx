@@ -7,11 +7,9 @@ import { menus } from "../utils/constant";
 import { menuItems } from "../utils/constant";
 
 const Sidebar = () => {
-    const { hamburger } = useContext(HamburgerContext);
+    const { hamburger, selectedMenu, setSelectedMenu } = useContext(HamburgerContext);
 
-  const [selectedMenu, setSelectedMenu] = useState("My Account");
-
-  const [selectedItem, setSelectedItem] = useState("My Account");
+    const {selectedItem, setSelectedItem} = useState("My Account");
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
@@ -51,8 +49,8 @@ const Sidebar = () => {
 
         {/* Sidebar Links */}
         <div className=" md:pt-11 pt-6 bg-[#404040] flex flex-col gap-1">
-          {menus.map((menu, index) => (
-            <Link to={`${menu.link}`} key={index}>
+          {menus.map((menu) => (
+            <Link to={`${menu.link}`} key={menu.title}>
               <div
                 className={`md:py-4 py-2 pl-6 pr-[100px]font-sans font-normal md:text-base text-sm text-gray-300 cursor-pointer flex items-center hover:bg-[#59595c] ${
                   menu.title === selectedMenu && hamburger
@@ -91,9 +89,8 @@ const Sidebar = () => {
       </div>
       <div className="block md:hidden shadow-md bg-slate-50 w-[100%] py-3 fixed top-[68px] px-2">
         <div className="flex items-center justify-between">
-          {menuItems.map((item, index) => (
+          {menuItems.map((item) => (
             <div
-              key={index}
               className={`font-sans font-medium text-xs ${
                 selectedItem === item ? "text-[#99CA3B]" : "text-[#B2B2B2]"
               }`}
