@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import React, { useContext } from "react";
 import { HamburgerContext } from "../context/HamburgerContext";
 import { lazy, Suspense } from 'react';
 const Myprofile = lazy(() => import('./Myprofile'));
@@ -9,10 +9,12 @@ const Account = () => {
   const { hamburger } = useContext(HamburgerContext);
   return (
     <div
-      className={`flex flex-col px-3 md:px-[30px] ${
-        hamburger && "md:w-[calc(100%-280px)] md:ml-[288px] hidden md:block"
-      } pb-8 md:pb-0 md:mt-16 mt-[120px] xl:h-[100vh] md:h-full`}
-    >
+    className={`flex flex-col px-3 md:px-[30px] ${
+      hamburger
+        ? "md:w-[calc(100%-280px)] md:ml-[288px] hidden md:block"
+        : "md:w-[calc(100%-80px)] md:ml-[80px]"
+    } pb-8 md:pb-0 md:mt-16 mt-[120px] xl:h-[100vh] md:h-full`}
+  >
       <div className="bg-[#F1F2F7] mt-6 w-max text-[#999999] font-normal text-xs font-sans hidden md:block">
         Dashboard | <span className="text-[#2680EB]">My Account</span>
       </div>
